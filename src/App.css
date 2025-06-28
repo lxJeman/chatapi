@@ -1,0 +1,176 @@
+/* Simple ChatGPT-like UI */
+.gpt-wrapper-root {
+  min-height: 100vh;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+}
+.gpt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0 16px 0;
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+}
+.gpt-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1976d2;
+}
+.gpt-settings-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.gpt-settings-btn:hover {
+  background: #e3e3e3;
+}
+.gpt-chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+}
+.gpt-chat-messages {
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  min-height: 400px;
+  margin-bottom: 16px;
+  padding: 24px 16px 16px 16px;
+  box-shadow: 0 2px 8px #0001;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+.gpt-message {
+  max-width: 80%;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 1.08rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.gpt-message-user {
+  align-self: flex-end;
+  background: #1976d2;
+  color: #fff;
+}
+.gpt-message-assistant {
+  align-self: flex-start;
+  background: #eee;
+  color: #222;
+}
+.gpt-loading {
+  color: #888;
+  font-size: 14px;
+}
+.gpt-empty {
+  color: #888;
+  text-align: center;
+  margin-top: 40px;
+}
+.gpt-error {
+  color: #d32f2f;
+  background: #fff0f0;
+  border: 1px solid #fbb;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.gpt-input-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+.gpt-input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+.gpt-send-btn {
+  padding: 0 22px;
+  border-radius: 6px;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.gpt-send-btn:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+}
+.gpt-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #0008;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.gpt-modal {
+  background: #fff;
+  padding: 32px 24px 24px 24px;
+  border-radius: 10px;
+  min-width: 320px;
+  box-shadow: 0 2px 12px #0002;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.gpt-modal-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.gpt-modal-input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+.gpt-modal-save {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.gpt-modal-cancel {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #eee;
+  color: #222;
+  font-size: 16px;
+  cursor: pointer;
+}
+@media (max-width: 800px) {
+  .gpt-header, .gpt-chat-area {
+    max-width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .gpt-chat-messages {
+    padding: 16px 4px 8px 4px;
+  }
+  .gpt-modal {
+    min-width: 90vw;
+  }
+}
